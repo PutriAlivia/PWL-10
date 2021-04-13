@@ -68,6 +68,13 @@
                                     @endforeach
                                 </select>
                         </div>
+                        <div class="form-group">
+                            <label for="image">Foto</label>
+                            <input type="file" class="form-control" required="required" name="foto" value="{{$mahasiswa->foto}}"
+                            >
+                        </br>
+                            <img width="150px" src="{{asset('storage/'.$mahasiswa->foto)}}">
+                        </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>

@@ -57,6 +57,10 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="No_Handphone">foto</label>
+                            <input type="file" name="foto" class="form-control"id="No_Handphone"aria-describedby="No_Handphone">
+                            </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
