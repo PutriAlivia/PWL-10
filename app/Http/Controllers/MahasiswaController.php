@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Mahasiswa;
 use App\Models\Kelas;
 use Illuminate\Support\Facades\Storage;
+use PDF;
+use App\Models\MataKuliah;
 
 class MahasiswaController extends Controller
 {
@@ -16,10 +18,10 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $mahasiswa = Mahasiswa::with('kelas')->get();
+        $mahasiswas = Mahasiswa::with('kelas')->get();
         // Mengambil semua isi tabel
         $paginate = Mahasiswa::orderBy('nim', 'desc')->paginate(1);
-        return view('mahasiswas.index', compact('mahasiswa', 'paginate'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('mahasiswas.index', compact('mahasiswas', 'paginate'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -41,9 +43,9 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nim' => 'required', 'nama' => 'required', 'kelas_id' => 'required', 'jurusan' => 'required', 'no_handphone' => 'required', 'email' => 'required', 'tanggal_lahir' => 'required'
-        ]); //fungsieloquentuntukmenambahdata
+        // $request->validate([
+        //     'nim' => 'required', 'nama' => 'required', 'kelas_id' => 'required', 'jurusan' => 'required', 'no_handphone' => 'required', 'email' => 'required', 'tanggal_lahir' => 'required'
+        // ]); //fungsieloquentuntukmenambahdata
         $image = $request->file('foto');
         if ($image) {
             $image_name = $request->file('foto')->store('images', 'public');
@@ -125,9 +127,15 @@ class MahasiswaController extends Controller
 
     public function nilai($nim)
     {
-        $mhs = Mahasiswa::find($nim);
+        $Mahasiswa = Mahasiswa::find($nim);
         //$jajal = $mhs->matakuliah;
         //$kelas = $mhs->kelas->nama_kelas;
-        return view('mahasiswas.nilai', compact('mhs'));
+        return view('mahasiswas.nilai', compact('Mahasiswa'));
+    }
+    public function cetak_pdf($id)
+    {
+        $mhs = Mahasiswa::find($id);
+        $pdf = PDF::loadview('mahasiswas.cetak_pdf',compact('mhs'));
+        return $pdf->stream();
     }
 }

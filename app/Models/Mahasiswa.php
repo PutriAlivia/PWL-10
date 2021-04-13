@@ -10,20 +10,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mahasiswa extends Model
 {
-    protected $table='mahasiswa'; // Eloquent akan membuat model mahasiswa menyimpan record di tabel mahasiswas
-    protected $primaryKey = 'Nim'; // Memanggil isi DB Dengan primarykey
+    // protected $table='mahasiswa'; // Eloquent akan membuat model mahasiswa menyimpan record di tabel mahasiswas
+    // protected $primaryKey = 'Nim'; // Memanggil isi DB Dengan primarykey
     /**
      * The attributes that are mass assignable. *
      * @var array
      */
     protected $fillable = [
-        'Nim',
-        'Nama',
-        'Tanggal_Lahir',
+        'nim',
+        'nama',
+        'tanggal_lahir',
         'kelas_id',
-        'Jurusan',
-        'Email',
-        'No_Handphone',
+        'jurusan',
+        'email',
+        'no_handphone',
+        'foto',
     ];
 
     public function kelas()

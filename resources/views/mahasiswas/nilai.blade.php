@@ -1,4 +1,4 @@
-@extends('users.layout')
+@extends('mahasiswas.layout')
 
 @section('content')
     <div class="row">
@@ -10,8 +10,8 @@
             </div>
             <br><br>
             <div class="float-left my-2">
-                <p><strong>Nama :</strong> {{ $Mahasiswa->Nama }}</p>
-                <p><strong>NIM :</strong> {{ $Mahasiswa->Nim }}</p>
+                <p><strong>Nama :</strong> {{ $Mahasiswa->nama }}</p>
+                <p><strong>NIM :</strong> {{ $Mahasiswa->nim }}</p>
                 <p><strong>Kelas :</strong> {{ $Mahasiswa->kelas->nama_kelas }}</p>
             </div>
         </div>
@@ -33,6 +33,8 @@
         </tr>
         @endforeach
     </table>
+</table>
+<p align="center">	<a target="_blank" class="btn btn-danger btn-lg" href="{{url('mahasiswa/cetak_pdf/'.$Mahasiswa->id)}}">CETAK KE PDF</a> </p>
 
     <div class="float-right my-2">
         <a class="btn btn-success mt-3" href="{{ route('mahasiswa.index') }}">Kembali</a>

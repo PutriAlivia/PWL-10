@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\MahasiswaController;
 use App\Models\Article;
 
 /*
@@ -14,6 +15,10 @@ use App\Models\Article;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::resource('mahasiswa', MahasiswaController::class);
+Route::get('/mahasiswa/cetak_pdf/{id}',[MahasiswaController::class,'cetak_pdf']);
+Route::get('mahasiswa/nilai/{Nim}', [MahasiswaController::class, 'nilai'])->name('mahasiswa.nilai');
 
 Route::resource('articles', ArticleController::class);
 

@@ -1,4 +1,4 @@
-@extends('users.layout')
+@extends('mahasiswas.layout')
 
 @section('content')
 
@@ -20,38 +20,38 @@
                             </ul>
                         </div>
                     @endif
-                    <form method="post" action="{{ route('mahasiswa.store') }}" id="myForm">
+                    <form method="post" enctype="multipart/form-data" action="{{ route('mahasiswa.store') }}" id="myForm">
                         @csrf
                         <div class="form-group">
-                            <label for="Nim">Nim</label>
-                            <input type="text" name="Nim" class="form-control" id="Nim" aria-describedby="Nim">
+                            <label for="Nim">nim</label>
+                            <input type="text" name="nim" class="form-control" id="nim" aria-describedby="nim">
                         </div>
                         <div class="form-group">
-                            <label for="Nama">Nama</label>
-                            <input type="Nama" name="Nama" class="form-control" id="Nama" aria-describedby="Nama">
+                            <label for="Nama">nama</label>
+                            <input type="Nama" name="nama" class="form-control" id="nama" aria-describedby="nama">
                         </div>
                         <div class="form-group">
-                            <label for="Tanggal_Lahir">Tanggal_Lahir</label>
-                            <input type="date" name="Tanggal_Lahir" class="form-control" id="Tanggal_Lahir" aria-describedby="Tanggal_Lahir">
+                            <label for="Tanggal_Lahir">tanggal_Lahir</label>
+                            <input type="date" name="tanggal_Lahir" class="form-control" id="tanggal_Lahir" aria-describedby="tanggal_Lahir">
                         </div>
                         <div class="form-group">
-                            <label for="Jurusan">Jurusan</label>
-                            <input type="Jurusan" name="Jurusan" class="form-control" id="Jurusan"
+                            <label for="Jurusan">jurusan</label>
+                            <input type="jurusan" name="jurusan" class="form-control" id="jurusan"
                                 aria-describedby="Jurusan">
                         </div>
                         <div class="form-group">
-                            <label for="Email">Email</label>
-                            <input type="Email" name="Email" class="form-control" id="Email" aria-describedby="Email">
+                            <label for="Email">email</label>
+                            <input type="email" name="email" class="form-control" id="email" aria-describedby="email">
                         </div>
                         <div class="form-group">
-                            <label for="No_Handphone">No_Handphone</label>
+                            <label for="No_Handphone">no_handphone</label>
 
-                            <input type="No_Handphone" name="No_Handphone" class="form-control" id="No_Handphone"
-                                aria-describedby="No_Handphone">
+                            <input type="no_handphone" name="no_handphone" class="form-control" id="no_handphone"
+                                aria-describedby="no_handphone">
                         </div>
                         <div class="form-group">
-                            <label for="Kelas">Kelas</label>
-                            <select type="kelas" name="kelas" class="form-control" id="kelas">
+                            <label for="Kelas">kelas</label>
+                            <select type="kelas" name="kelas_id" class="form-control" id="kelas">
                                 @foreach ($kelas as $kls)
                                     <option value="{{$kls->id}}">{{$kls->nama_kelas}}</option>
                                 @endforeach
@@ -59,7 +59,7 @@
                         </div>
                         <div class="form-group">
                             <label for="No_Handphone">foto</label>
-                            <input type="file" name="foto" class="form-control"id="No_Handphone"aria-describedby="No_Handphone">
+                            <input type="file" name="foto" class="form-control"id="no_handphone"aria-describedby="no_handphone">
                             </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

@@ -1,4 +1,4 @@
-@extends('users.layout')
+@extends('mahasiswas.layout')
 
 @section('content')
 
@@ -21,23 +21,23 @@
                             </ul>
                         </div>
                     @endif
-                    <form method="post" action="{{ route('mahasiswa.update', $Mahasiswa->Nim) }}" id="myForm">
+                    <form method="post" enctype="multipart/form-data" action="{{ route('mahasiswa.update', $Mahasiswa->Nim) }}" id="myForm">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label for="Nim">Nim</label>
-                            <input type="text" name="Nim" class="form-control" id="Nim" value="{{ $Mahasiswa->Nim }}"
-                                aria-describedby="Nim">
+                            <label for="Nim">nim</label>
+                            <input type="text" name="nim" class="form-control" id="nim" value="{{ $Mahasiswa->nim }}"
+                                aria-describedby="nim">
                         </div>
                         <div class="form-group">
-                            <label for="Nama">Nama</label>
-                            <input type="text" name="Nama" class="form-control" id="Nama" value="{{ $Mahasiswa->Nama }}"
-                                aria-describedby="Nama">
+                            <label for="Nama">nama</label>
+                            <input type="text" name="nama" class="form-control" id="nama" value="{{ $Mahasiswa->nama }}"
+                                aria-describedby="nama">
                         </div>
                         <div class="form-group">
-                            <label for="Tanggal_Lahir">Tanggal_Lahir</label>
-                            <input type="date" name="Tanggal_Lahir" class="form-control" id="Tanggal_Lahir"
-                                value="{{ $Mahasiswa->Tanggal_Lahir }}" aria-describedby="Tanggal_Lahir">
+                            <label for="tanggal_Lahir">tanggal_lahir</label>
+                            <input type="date" name="tanggal_lahir" class="form-control" id="tanggal_lahir"
+                                value="{{ $Mahasiswa->tanggal_lahir }}" aria-describedby="tanggal_lahir">
                         </div>
                         {{-- <div class="form-group">
                             <label for="Kelas">Kelas</label>
@@ -45,23 +45,23 @@
                                 value="{{ $Mahasiswa->Kelas }}" aria-describedby="Kelas">
                         </div> --}}
                         <div class="form-group">
-                            <label for="Jurusan">Jurusan</label>
-                            <input type="Jurusan" name="Jurusan" class="form-control" id="Jurusan"
-                                value="{{ $Mahasiswa->Jurusan }}" aria-describedby="Jurusan">
+                            <label for="jurusan">jurusan</label>
+                            <input type="jurusan" name="jurusan" class="form-control" id="jurusan"
+                                value="{{ $Mahasiswa->jurusan }}" aria-describedby="jurusan">
                         </div>
                         <div class="form-group">
-                            <label for="Email">Email</label>
-                            <input type="Email" name="Email" class="form-control" id="Email"
-                                value="{{ $Mahasiswa->Email }}" aria-describedby="Email">
+                            <label for="Email">email</label>
+                            <input type="email" name="email" class="form-control" id="email"
+                                value="{{ $Mahasiswa->email }}" aria-describedby="email">
                         </div>
                         <div class="form-group">
-                            <label for="No_Handphone">No_Handphone</label>
+                            <label for="No_Handphone">no_handphone</label>
 
-                            <input type="No_Handphone" name="No_Handphone" class="form-control" id="No_Handphone"
-                                value="{{ $Mahasiswa->No_Handphone }}" aria-describedby="No_Handphone">
+                            <input type="no_handphone" name="no_handphone" class="form-control" id="no_handphone"
+                                value="{{ $Mahasiswa->no_handphone }}" aria-describedby="no_handphone">
                         </div>
                         <div class="form-group">
-                            <label for="Kelas">Kelas</label>
+                            <label for="Kelas">kelas</label>
                                 <select type="kelas" name="kelas" class="form-control" id="kelas">
                                     @foreach ($kelas as $kls)
                                         <option value="{{$kls->id}}" {{ $Mahasiswa->kelas_id == $kls->id ? 'selected' : ''}}>{{$kls->nama_kelas}}</option>
@@ -69,7 +69,7 @@
                                 </select>
                         </div>
                         <div class="form-group">
-                            <label for="image">Foto</label>
+                            <label for="image">foto</label>
                             <input type="file" class="form-control" required="required" name="foto" value="{{$mahasiswa->foto}}"
                             >
                         </br>

@@ -1,4 +1,4 @@
-@extends('users.layout')
+@extends('mahasiswas.layout')
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -35,6 +35,7 @@
         <tr>
             <th>Nim</th>
             <th>Nama</th>
+            <th>Foto</th>
             <th>Tanggal_Lahir</th>
             <th>Jurusan</th>
             <th>Email</th>
@@ -45,20 +46,21 @@
         @foreach ($mahasiswas as $Mahasiswa)
             <tr>
 
-                <td>{{ $Mahasiswa->Nim }}</td>
-                <td>{{ $Mahasiswa->Nama }}</td>
-                <td>{{ $Mahasiswa->Tanggal_Lahir }}</td>
-                <td>{{ $Mahasiswa->Jurusan }}</td>
-                <td>{{ $Mahasiswa->Email }}</td>
-                <td>{{ $Mahasiswa->No_Handphone }}</td>
+                <td>{{ $Mahasiswa->nim }}</td>
+                <td>{{ $Mahasiswa->nama }}</td>
+                <td><img width="100px" height="100px" src="{{asset('storage/'.$Mahasiswa->foto)}}"></td>
+                <td>{{ $Mahasiswa->tanggal_lahir }}</td>
+                <td>{{ $Mahasiswa->jurusan }}</td>
+                <td>{{ $Mahasiswa->email }}</td>
+                <td>{{ $Mahasiswa->no_handphone }}</td>
                 <td>
-                    <form action="{{ route('mahasiswa.destroy', $Mahasiswa->Nim) }}" method="POST">
+                    <form action="{{ route('mahasiswa.destroy', $Mahasiswa->id) }}" method="POST">
 
-                        <a class="btn btn-info" href="{{ route('mahasiswa.show', $Mahasiswa->Nim) }}">Show</a>
-                        <a class="btn btn-primary" href="{{ route('mahasiswa.edit', $Mahasiswa->Nim) }}">Edit</a>
+                        <a class="btn btn-info" href="{{ route('mahasiswa.show', $Mahasiswa->id) }}">Show</a>
+                        <a class="btn btn-primary" href="{{ route('mahasiswa.edit', $Mahasiswa->id) }}">Edit</a>
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
-                        <a class="btn btn-warning" href="{{ route('mahasiswa.nilai', $Mahasiswa->Nim) }}">Nilai</a>
+                        <a class="btn btn-warning" href="{{ route('mahasiswa.nilai', $Mahasiswa->id) }}">Nilai</a>
 
                     </form>
                 </td>
@@ -67,6 +69,5 @@
         @endforeach
     </table>
     <div class="d-flex justify-content-center">
-        {{$mahasiswas->links()}}
     </div>
 @endsection
