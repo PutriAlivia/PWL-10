@@ -15,7 +15,3 @@ required="required" name="content"></textarea></br>
 required="required" name="image"></br>
  <button type="submit" name="submit" class="btn btn-primary
 float-right">Simpan</button>
-</div>
-</form>
-</div>
-@endsection
